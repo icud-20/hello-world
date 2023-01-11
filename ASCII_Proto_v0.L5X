@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="34.01" TargetName="UCart_0" TargetType="Controller" ContainsContext="false" ExportDate="Tue Jan 10 15:32:34 2023" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
-<Controller Use="Target" Name="UCart_0" ProcessorType="5069-L310ERM" MajorRev="34" MinorRev="11" ProjectCreationDate="Wed Dec 16 11:55:42 2020" LastModifiedDate="Fri Dec 16 17:13:36 2022" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan" CommPath="AB_ETHIP-1\10.10.0.16"
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="34.01" TargetName="UCart_0" TargetType="Controller" ContainsContext="false" ExportDate="Wed Jan 11 12:06:52 2023" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Target" Name="UCart_0" ProcessorType="5069-L310ERM" MajorRev="34" MinorRev="11" ProjectCreationDate="Wed Dec 16 11:55:42 2020" LastModifiedDate="Wed Jan 11 12:06:40 2023" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan" CommPath="AB_ETHIP-1\10.10.0.16"
  ProjectSN="16#d023_f2fe" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false" EtherNetIPMode="A1/A2: Dual-IP" AutoDiagsEnabled="false" WebServerEnabled="false"
 >
 <RedundancyInfo Enabled="false" KeepTestEditsOnSwitchOver="false"/>
@@ -800,6 +800,14 @@
 <DataValue DataType="BOOL" Radix="Binary" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="my_Current" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="ONS_1" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write">
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -927,6 +935,11 @@
 </Text>
 </Rung>
 <Rung Number="8" Type="N">
+<Text>
+<![CDATA[AFI()CPT(my_Current,(ManiPress2 * 25) / 65535);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
 <Text>
 <![CDATA[JSR(BitShifter,0);]]>
 </Text>
